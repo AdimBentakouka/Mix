@@ -7,6 +7,6 @@ namespace Vidéotèque
 {
     public class Film : Media
     {
-        public TimeSpan Duree { get => Duree; set => Duree = value; }
+        public TimeSpan Duree { get; set; }
     }
 }

@@ -22,15 +22,15 @@ namespace Vidéotèque
         public int Note { get; set; }
         public string Commentaire { get; set; }
         public string Synopsis { get; set; }
-        public int Age_minimum { get; set; }
+        public int Age_Minimum { get; set; }
         public bool AudioDescription { get; set; }
-        public bool Support_physique { get; set; }
-        public bool Support_numerique { get; set; }
+        public bool Support_Physique { get; set; }
+        public bool Support_Mumerique { get; set; }
 
         public StatutMedia Statut { get; set; }
-        public Langue Langue_vo { get; set; }
-        public Langue Langue_media { get; set; }
-        public Langue Sous_titre { get; set; }
+        public Langue Langue_VO { get; set; }
+        public Langue Langue_Media { get; set; }
+        public Langue Sous_Titre { get; set; }
 
 
     
