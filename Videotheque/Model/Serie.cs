@@ -6,6 +6,6 @@ namespace Vidéotèque{
     public class Serie : Media
     {
         public int Duree { get; set; }
-        public int Nb_saisons { get ; set; }
+        public int Nb_Saisons { get ; set; }
     }
 }
