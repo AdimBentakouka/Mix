@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vidéotèque
+namespace Videotheque.Model
 {
     public class Media_Genre
     {

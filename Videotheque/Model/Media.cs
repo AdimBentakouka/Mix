@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static Vidéotèque.Enum;
+using static Videotheque.Model.Enum;
 
 
 
-namespace Vidéotèque
+namespace Videotheque.Model
 {
     public class Media
     {
