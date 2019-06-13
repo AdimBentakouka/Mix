@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Videotheque"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        WindowState="Maximized"
+        Title="Mix" Height="720" Width="1280" Icon="Ressource/Icon.png" Opacity="0.995">
+
+    <Grid Background="#070707">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <Image HorizontalAlignment="Center"  VerticalAlignment="Center" Source="/Videotheque;component/Ressource/Logo.png" Margin="20"/>
+        <Frame x:Name="view" NavigationUIVisibility="Hidden" Source="/Videotheque;component/View/Home.xaml" Grid.Row="2" Grid.Column="2"  />
+
+
+        <Label x:Name="laccueil" Content="Accueil" Margin="0 20 0 0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="White" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#d98f12" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label x:Name="lvoirFilms" Content="Voir Films" Margin="0,114,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonDown="Label_Click">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="White" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#d98f12" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label x:Name="lvoirSeries" Content="Voir Séries" Margin="0,210,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="White" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#d98f12" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label x:Name="ladministration" Content="Adminsitration" Margin="0,304,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top"  FontSize="24" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="White" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="#d98f12" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+
     </Grid>
 </Window>

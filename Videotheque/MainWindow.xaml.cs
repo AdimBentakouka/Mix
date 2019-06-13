@@ -20,9 +20,28 @@ namespace Videotheque
     /// </summary>
     public partial class MainWindow : Window
     {
+   
         public MainWindow()
         {
             InitializeComponent();
+
+            setView("/Videotheque;component/View/Home.xaml"); // Vue par défault
+
         }
+
+        /*
+         *  Permet de changer de view
+         * */
+        private void setView(string _view)
+        {
+            view.Source = new System.Uri(_view);
+
+        }
+        private void Label_Click(object sender, MouseButtonEventArgs e)
+        {
+            setView("/Videotheque;component/View/Films.xaml");
+        }
+
+    
     }
 }
