@@ -20,10 +20,10 @@
 
 
             <Image HorizontalAlignment="Center"  VerticalAlignment="Center" Source="/Videotheque;component/Ressource/Logo.png" Margin="20"/>
-        <Frame x:Name="view" NavigationUIVisibility="Hidden" Source="/Videotheque;component/View/Home.xaml" Grid.Row="2" Grid.Column="2"  />
+         <Frame NavigationUIVisibility="Hidden"  Content="{Binding Source}" Grid.Row="2" Grid.Column="2"  />
 
 
-        <Label x:Name="laccueil" Content="Accueil" Margin="0 20 0 0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand">
+        <Label Content="Accueil" Margin="0 20 0 0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="onClickHome">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />
@@ -35,7 +35,7 @@
                 </Style>
             </Label.Style>
         </Label>
-        <Label x:Name="lvoirFilms" Content="Voir Films" Margin="0,114,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand">
+        <Label Content="Voir Films" Margin="0,114,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="onClickFilm">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />
@@ -47,7 +47,7 @@
                 </Style>
             </Label.Style>
         </Label>
-        <Label x:Name="lvoirSeries" Content="Voir Séries" Margin="0,210,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand">
+        <Label Content="Voir Séries" Margin="0,210,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="onClickSerie">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />
@@ -59,7 +59,7 @@
                 </Style>
             </Label.Style>
         </Label>
-        <Label x:Name="ladministration" Content="Adminsitration" Margin="0,304,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top"  FontSize="24" Cursor="Hand">
+        <Label Content="Adminsitration" Margin="0,304,0,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top"  FontSize="24" Cursor="Hand" MouseLeftButtonUp="onClickAdmin">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />

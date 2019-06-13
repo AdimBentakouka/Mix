@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Videotheque.View;
+using Videotheque.ViewModel;
+using Videotheque.Service;
 
 namespace Videotheque
 {
@@ -20,14 +23,32 @@ namespace Videotheque
     /// </summary>
     public partial class MainWindow : Window
     {
-   
+        private MainViewModel view;
         public MainWindow()
         {
             InitializeComponent();
+            view = new MainViewModel();
+            view.Source = NavigationServices.GetPage<Home, HomeViewModel>(view);
+            this.DataContext = view;
 
         }
- 
+        
+        public void onClickHome(object send, RoutedEventArgs e)
+        {
+            view.Source = NavigationServices.GetPage<Home, HomeViewModel>(view);
+        }
+        public void onClickFilm(object sender, RoutedEventArgs e)
+        {
+            view.Source = NavigationServices.GetPage<Films, FilmsViewModel>(view);
+        }
+        public void onClickSerie(object sender, RoutedEventArgs e)
+        {
+            view.Source = NavigationServices.GetPage<Series, SeriesViewModel>(view);
+        }
+        public void onClickAdmin(object sender, RoutedEventArgs e)
+        {
+            view.Source = NavigationServices.GetPage<Administration, AdminViewModel>(view);
+        }
 
-    
     }
 }

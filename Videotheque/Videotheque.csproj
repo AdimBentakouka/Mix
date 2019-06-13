@@ -182,6 +182,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service\NavigationService.cs" />
     <Compile Include="DataAccess\ProjectDbContext.cs" />
     <Compile Include="DataAccess\ProjectDbContextFactory.cs" />
     <Compile Include="Migrations\20190430080945_Initial.cs" />
@@ -189,7 +190,13 @@
       <DependentUpon>20190430080945_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BooksDbContextModelSnapshot.cs" />
+    <Compile Include="Model\AbstractModel.cs" />
     <Compile Include="Model\Serie.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\FilmsViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SeriesViewModel.cs" />
     <Compile Include="View\Administration.xaml.cs">
       <DependentUpon>Administration.xaml</DependentUpon>
     </Compile>
@@ -265,9 +272,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
