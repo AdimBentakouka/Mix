@@ -8,5 +8,6 @@ namespace Videotheque.Model
     public class Film : Media
     {
         public TimeSpan Duree { get; set; }
+
     }
 }

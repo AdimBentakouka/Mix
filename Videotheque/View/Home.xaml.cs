@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Videotheque.Model;
+using Videotheque.ViewModel;
 
 namespace Videotheque.View
 {
@@ -20,9 +25,21 @@ namespace Videotheque.View
     /// </summary>
     public partial class Home : Page
     {
+        private HomeViewModel HomeViewModel;
         public Home()
         {
+             
+
             InitializeComponent();
+
+                    
         }
+
+        public void IsLoaded(object sender, RoutedEventArgs e)
+        {
+            HomeViewModel = DataContext as HomeViewModel;
+            HomeViewModel.InitData();
+        }
+
     }
 }

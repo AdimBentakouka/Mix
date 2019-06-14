@@ -33,19 +33,19 @@ namespace Videotheque
 
         }
         
-        public void onClickHome(object send, RoutedEventArgs e)
+        public void OnClickHome(object send, RoutedEventArgs e)
         {
             view.Source = NavigationServices.GetPage<Home, HomeViewModel>(view);
         }
-        public void onClickFilm(object sender, RoutedEventArgs e)
+        public void OnClickFilm(object sender, RoutedEventArgs e)
         {
             view.Source = NavigationServices.GetPage<Films, FilmsViewModel>(view);
         }
-        public void onClickSerie(object sender, RoutedEventArgs e)
+        public void OnClickSerie(object sender, RoutedEventArgs e)
         {
             view.Source = NavigationServices.GetPage<Series, SeriesViewModel>(view);
         }
-        public void onClickAdmin(object sender, RoutedEventArgs e)
+        public void OnClickAdmin(object sender, RoutedEventArgs e)
         {
             view.Source = NavigationServices.GetPage<Administration, AdminViewModel>(view);
         }
