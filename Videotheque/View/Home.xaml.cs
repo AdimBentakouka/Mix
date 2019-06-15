@@ -35,7 +35,7 @@ namespace Videotheque.View
                     
         }
 
-        public void IsLoaded(object sender, RoutedEventArgs e)
+        public new void IsLoaded(object sender, RoutedEventArgs e)
         {
             HomeViewModel = DataContext as HomeViewModel;
             HomeViewModel.InitData();
