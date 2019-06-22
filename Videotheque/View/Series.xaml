@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Videotheque.View"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1080"
+      d:DesignHeight="640" d:DesignWidth="930"
       Title="Series">
 
     <Grid Background="#111111">

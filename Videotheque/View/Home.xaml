@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:liveCharts="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
+      d:DesignHeight="640" d:DesignWidth="930"
       Title="Home"
       Loaded="IsLoaded"
       >
@@ -27,7 +27,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <liveCharts:PieChart Series="{Binding MediaParGenre}" 
-                      LegendLocation="Right" InnerRadius="100" Margin="10,20,-10,10" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" Foreground="White">
+                      LegendLocation="Right" InnerRadius="100"  Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" Foreground="White">
             <liveCharts:PieChart.ChartLegend>
                 <liveCharts:DefaultLegend BulletSize="20"></liveCharts:DefaultLegend>
             </liveCharts:PieChart.ChartLegend>
@@ -37,7 +37,7 @@
         </liveCharts:PieChart>
 
         <liveCharts:PieChart Series="{Binding MediaParNote}" 
-                      LegendLocation="Right" InnerRadius="100" Margin="10,20,-10,10" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="4" Foreground="White">
+                      LegendLocation="Right" InnerRadius="100" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="4" Foreground="White">
             <liveCharts:PieChart.ChartLegend>
                 <liveCharts:DefaultLegend BulletSize="20"></liveCharts:DefaultLegend>
             </liveCharts:PieChart.ChartLegend>
@@ -47,6 +47,7 @@
         </liveCharts:PieChart>
 
         <Label Content="{Binding NbMedia}"  Foreground="#FFFBFBFB" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="7" />
+
 
 
     </Grid>

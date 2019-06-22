@@ -10,11 +10,21 @@ namespace Videotheque.ViewModel
 {
     class FilmsViewModel : AbstractModel
     {
-      //  private readonly FilmService filmService = new FilmServiceImpl();
         public MainViewModel ViewModel { get { return GetValue<MainViewModel>(); } set { SetValue<MainViewModel>(value); } }
+
+
         public FilmsViewModel(MainViewModel _ViewModel)
         {
             ViewModel = _ViewModel;
         }
+
+        public void InitData()
+        {
+
+        }
+
+       
+
     }
+
 }
