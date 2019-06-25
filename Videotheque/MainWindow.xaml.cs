@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Videotheque.View;
 using Videotheque.ViewModel;
 using Videotheque.Service;
+using Videotheque.DataAccess;
 
 namespace Videotheque
 {
@@ -24,12 +25,18 @@ namespace Videotheque
     public partial class MainWindow : Window
     {
         private MainViewModel view;
+
+
+        public BooksDbContext context;
+
         public MainWindow()
         {
             InitializeComponent();
             view = new MainViewModel();
             view.Source = NavigationServices.GetPage<Home, HomeViewModel>(view);
             this.DataContext = view;
+
+
 
         }
         

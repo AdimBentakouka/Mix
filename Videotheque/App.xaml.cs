@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Videotheque.DataAccess;
+using Videotheque.Model;
 
 namespace Videotheque
 {
@@ -13,10 +15,15 @@ namespace Videotheque
     /// </summary>
     public partial class App : Application
     {
+  
         protected override async void OnStartup(StartupEventArgs e)
         {
+         
             base.OnStartup(e);
-            await DataAccess.BooksDbContext.GetCurrent();
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+
+            context.Films.Add(new Film { Titre = "Titre1", Commentaire = "Commentaire test", Synopsis = "Synopsis test" });
+            await context.SaveChangesAsync();
         }
 
     }

@@ -16,6 +16,8 @@ namespace Videotheque.ViewModel
         public FilmsViewModel(MainViewModel _ViewModel)
         {
             ViewModel = _ViewModel;
+            
+
         }
 
         public void InitData()
