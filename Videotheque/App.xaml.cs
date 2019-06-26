@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Videotheque.Model;
+using Videotheque.Service;
 
 namespace Videotheque
 {
@@ -16,7 +18,8 @@ namespace Videotheque
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            await DataAccess.BooksDbContext.GetCurrent();
+            FilmService test = new FilmService();
+            await test.AddFilm("Mon film", 5, "test syno", 10, 2);
         }
 
     }
