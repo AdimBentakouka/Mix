@@ -5,8 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Videotheque.DataAccess;
 using Videotheque.Model;
+using Videotheque.Service;
+
 
 namespace Videotheque
 {
@@ -20,10 +21,9 @@ namespace Videotheque
         {
          
             base.OnStartup(e);
-            var context = await DataAccess.BooksDbContext.GetCurrent();
 
-            context.Films.Add(new Film { Titre = "Titre1", Commentaire = "Commentaire test", Synopsis = "Synopsis test" });
-            await context.SaveChangesAsync();
+            FilmService test = new FilmService();
+            await test.AddFilm("Mon film", 5, "test syno", 10, 2);
         }
 
     }
