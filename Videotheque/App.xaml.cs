@@ -25,15 +25,9 @@ namespace Videotheque
         {
          
             base.OnStartup(e);
-<<<<<<< HEAD
+
             FilmService test = new FilmService();
             await test.AddFilm("Mon film", 5, "test syno", 10, 2);
-=======
-            var context = await DataAccess.BooksDbContext.GetCurrent();
-
-            context.Films.Add(new Film { Titre = "Titre1", Commentaire = "Commentaire test", Synopsis = "Synopsis test" });
-            await context.SaveChangesAsync();
->>>>>>> 8f90d8f32193b43180c44ad5ba8af7c86ee08a59
         }
 
     }
