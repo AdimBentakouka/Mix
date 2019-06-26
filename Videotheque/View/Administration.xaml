@@ -11,11 +11,56 @@
     <Grid Background="#111111">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+
+            <RowDefinition Height="50"/>
+
         </Grid.RowDefinitions>
+
+        <Label Content="Ajouter un média" HorizontalAlignment="Center" Foreground="#FFF3F3F3" VerticalAlignment="Center" FontSize="22" Background="#00000000"/>
+        <Label Name="ErrMess" Content="" HorizontalAlignment="Center" Foreground="#FFF3F3F3" VerticalAlignment="Center" FontSize="22" Background="#00000000" Grid.Column="1"/>
+
+        <Label Content="Nom du média" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="72,16,73,76" Height="26"/>
+        <TextBox Name="NameMedia" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+
+        <Label Content="Note" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="72,16,73,76" Height="23"/>
+        <ComboBox Name="Note" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120">
+            <ComboBoxItem>0</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">5</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Synopsis" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBox
+           Name="Synopsis"
+          TextWrapping="Wrap"
+          AcceptsReturn="True"
+          VerticalScrollBarVisibility="Visible" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+        />
+
+        <Label Content="Age Mini" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="90,2,85,52" Height="26"/>
+        <TextBox  Name="AgeMini" PreviewTextInput="NumberValidationTextBox" MaxLength="2" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Background="White"/>
+
+        <Label Content="Genre" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="89,2,70,52" Height="26" Width="73"/>
+        <TextBox  Name="Genre" Grid.Column="2" HorizontalAlignment="Center" Height="23" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Background="White"/>
         
-      <Label Content="Administration" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Grid.ColumnSpan="2" Height="700" Grid.RowSpan="2" Width="1260" Foreground="#FFFBFBFB"/>
+        <Button Content="Créer" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="75" Grid.ColumnSpan="2" Click="OnClickButton"/>
+
+
+
+
+
     </Grid>
 </Page>

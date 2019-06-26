@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Videotheque.Model;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
 
 namespace Videotheque.ViewModel
 {
@@ -14,5 +16,7 @@ namespace Videotheque.ViewModel
         {
             ViewModel = _ViewModel;
         }
+
+
     }
 }
