@@ -199,12 +199,16 @@
     <Compile Include="Model\AbstractModel.cs" />
     <Compile Include="Model\Serie.cs" />
     <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\AmisViewModel.cs" />
     <Compile Include="ViewModel\FilmsViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SeriesViewModel.cs" />
     <Compile Include="View\Administration.xaml.cs">
       <DependentUpon>Administration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Amis.xaml.cs">
+      <DependentUpon>Amis.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Films.xaml.cs">
       <DependentUpon>Films.xaml</DependentUpon>
@@ -231,6 +235,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Administration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Amis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -56,6 +56,9 @@ namespace Videotheque
         {
             view.Source = NavigationServices.GetPage<Administration, AdminViewModel>(view);
         }
-
+        public void OnClickAmis(object sender, RoutedEventArgs e)
+        {
+            view.Source = NavigationServices.GetPage<Amis, AmisViewModel>(view);
+        }
     }
 }

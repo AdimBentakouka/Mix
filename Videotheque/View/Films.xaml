@@ -38,7 +38,7 @@
                 <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF212020" />
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF111111" />
             </ComboBox.Resources>
-            <ComboBoxItem Content="↑ A-Z" />
+            <ComboBoxItem IsSelected="true" Content="↑ A-Z" />
             <ComboBoxItem Content="↓ Z-A" />
         </ComboBox>
         <Label Content="Trier par genre: " Grid.Column="2" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="93"/>

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Videotheque.ViewModel;
 
 namespace Videotheque.View
 {
@@ -21,9 +22,15 @@ namespace Videotheque.View
     /// </summary>
     public partial class Administration : Page
     {
+        private AdminViewModel AdminViewModel;
         public Administration()
         {
             InitializeComponent();
+           
+        }
+        public new void IsLoaded(object sender, RoutedEventArgs e)
+        {
+            AdminViewModel = DataContext as AdminViewModel;
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -33,15 +40,8 @@ namespace Videotheque.View
 
         private void OnClickButton(object sender, RoutedEventArgs e)
         {
-            //Vérifie tout les champs et retourne une erreur si champs vides.
-            if(NameMedia.Text.Equals("") || Note.Text.Equals("") || Synopsis.Text.Equals("") || AgeMini.Text.Equals("") || Genre.Text.Equals(""))
-            {
-                ErrMess.Content = "Veuillez remplir tous les champs";
-            }
-            else
-            {
-                ErrMess.Content = "Tous les champs remplis";
-            }
+            ErrMess.Content = AdminViewModel.CheckAddFilm(NameMedia.Text, Note.Text, Synopsis.Text, AgeMini.Text, Genre.Text);
+           
 
         }
     }

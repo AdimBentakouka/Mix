@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:Videotheque.View"
       mc:Ignorable="d" 
        d:DesignHeight="640" d:DesignWidth="930"
-      Title="Administration">
+      Title="Administration"
+      Loaded="IsLoaded"
+      >
 
     <Grid Background="#111111">
         <Grid.ColumnDefinitions>

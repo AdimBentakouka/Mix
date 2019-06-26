@@ -71,6 +71,7 @@
                 </Style>
             </Label.Style>
         </Label>
+        <Button Click="OnClickAmis" Content="Liste Amis" Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="145" FontSize="20" Background="#00DDDDDD" Foreground="White" BorderBrush="#FFD98F12" Margin="0,10,37,10" Padding="10" Height="60"/>
 
     </Grid>
 </Window>
