@@ -40,7 +40,15 @@ namespace Videotheque.View
 
         private void OnClickButton(object sender, RoutedEventArgs e)
         {
-            ErrMess.Content = AdminViewModel.CheckAddFilm(NameMedia.Text, Note.Text, Synopsis.Text, AgeMini.Text, Genre.Text);
+            ErrMess.Content = AdminViewModel.CheckAddFilm(NameMedia.Text, Note.Text, Synopsis.Text, AgeMini.Text, Genre.SelectedIndex);
+            if(ErrMess.Content.Equals("Success")) 
+            {
+
+                NameMedia.Text = "";
+                Synopsis.Text = "";
+                AgeMini.Text = "";
+
+            }
            
 
         }
