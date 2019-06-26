@@ -16,7 +16,8 @@ namespace Videotheque.Service
             var context = await DataAccess.BooksDbContext.GetCurrent();
             Film newFilm = new Film { Titre = titre, Note = note, Synopsis = synopsis, Age_Minimum = ageMini };
             context.Films.Add(newFilm);
-            //context.MediasGenres.Add(new Media_Genre {Id_Genre = genre, Id_Media= newFilm.Id });
+            Media_Genre media_Genre = new Media_Genre { Id_Media = newFilm.Id, Id_Genre = genre };
+            context.MediasGenres.Add(media_Genre);
             await context.SaveChangesAsync();
         }
     }
