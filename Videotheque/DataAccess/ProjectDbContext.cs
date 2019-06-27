@@ -34,6 +34,7 @@ namespace Videotheque.DataAccess
         public DbSet<Model.Media> Medias { get; set; }
         public DbSet<Model.Media_Genre> MediasGenres { get; set; }
         public DbSet<Model.Serie> Series { get; set; }
+        public DbSet<Model.Ami> Amis { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

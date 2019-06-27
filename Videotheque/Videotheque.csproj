@@ -188,7 +188,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Ami.cs" />
     <Compile Include="Service\FilmService.cs" />
+    <Compile Include="Service\GenreService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="DataAccess\ProjectDbContext.cs" />
     <Compile Include="DataAccess\ProjectDbContextFactory.cs" />
