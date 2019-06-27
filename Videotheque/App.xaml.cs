@@ -22,20 +22,20 @@ namespace Videotheque
          
             base.OnStartup(e);
 
-            FilmService test = new FilmService();
+            FilmService filmservice = new FilmService();
+            GenreService genreservice = new GenreService();
             var context = await DataAccess.BooksDbContext.GetCurrent();
 
-            Genre genre = new Genre { Nom = "Horreur" };
-            context.Genres.Add(genre);
+            await genreservice.AddGenre("Fantasy");
 
-            await test.AddFilm("Mon film", 5, "test syno", 10, 3);
+            await filmservice.AddFilm("Mon film", 5, "test syno", 10, 1);
             await context.SaveChangesAsync();
-            List<Film> maliste = await test.GetAllFilm();
+            List<Genre> maliste = await filmservice.GetFilmGenre(1);
 
-            foreach(Film f in maliste)
+            foreach (Genre g in maliste)
             {
-                Console.WriteLine(f.Titre);
-            }
+                Console.WriteLine(g.Nom);
+            };
         }
 
     }
