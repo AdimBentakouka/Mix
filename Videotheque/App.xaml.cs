@@ -30,6 +30,12 @@ namespace Videotheque
 
             await test.AddFilm("Mon film", 5, "test syno", 10, 3);
             await context.SaveChangesAsync();
+            List<Film> maliste = await test.GetAllFilm();
+
+            foreach(Film f in maliste)
+            {
+                Console.WriteLine(f.Titre);
+            }
         }
 
     }

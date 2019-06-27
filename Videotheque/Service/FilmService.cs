@@ -20,5 +20,12 @@ namespace Videotheque.Service
             context.MediasGenres.Add(media_Genre);
             await context.SaveChangesAsync();
         }
+
+        public async Task<List<Film>> GetAllFilm()
+         {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            return context.Films.ToList();
+
+         }
     }
 }
