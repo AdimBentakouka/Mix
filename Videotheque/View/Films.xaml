@@ -33,16 +33,16 @@
             <ComboBoxItem Content="Action" />
         </ComboBox>
 
-        <ComboBox Grid.Column="3" Text="TRIER PAR" Background="#FF212020" HorizontalAlignment="Center" Margin="217,16,61,14" VerticalAlignment="Center"  Foreground="#FF787878" BorderBrush="Black" Width="88" Height="20">
+        <ComboBox Name="ComboBoxOrder" Grid.Column="3" Text="TRIER PAR" Background="#FF212020" HorizontalAlignment="Center" Margin="217,16,61,14" VerticalAlignment="Center"  Foreground="#FF787878" BorderBrush="Black" Width="88" Height="20" SelectionChanged="OnSelectOrder">
             <ComboBox.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF212020" />
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF111111" />
             </ComboBox.Resources>
-            <ComboBoxItem IsSelected="true" Content="↑ A-Z" />
-            <ComboBoxItem Content="↓ Z-A" />
+            <ComboBoxItem IsSelected="true" Tag="ASC" Content="↑ A-Z" />
+            <ComboBoxItem Tag="DESC" Content="↓ Z-A" />
         </ComboBox>
         <Label Content="Trier par genre: " Grid.Column="2" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="93"/>
         <Label Content="Trier par ordre alphabétique: " Grid.Column="3" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="164"/>
-        <ListBox Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2"/>
+        <ListBox ItemsSource="{Binding ListBoxFilms}" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2"/>
     </Grid>
 </Page>

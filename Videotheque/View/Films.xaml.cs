@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Videotheque.Model;
 using Videotheque.ViewModel;
 
 namespace Videotheque.View
@@ -27,16 +28,18 @@ namespace Videotheque.View
         {
             InitializeComponent();
             TextSearch.Text = "Rechercher un film / série";
+         
         }
         public new void IsLoaded(object sender, RoutedEventArgs e)
         {
             FilmViewModel = DataContext as FilmsViewModel;
             FilmViewModel.InitData();
+            
         }
-
+     
         private void OnFocusSearchText(object sender, RoutedEventArgs e)
         {
-            if(TextSearch.Text.Equals("Rechercher un film / série"))
+            if (TextSearch.Text.Equals("Rechercher un film / série"))
             {
                 TextSearch.Text = "";
             }
@@ -56,10 +59,21 @@ namespace Videotheque.View
 
         private void SearchMedia(object sender, TextChangedEventArgs e)
         {
-            if(TextSearch.Text.Length > 3)
+            if (TextSearch.Text.Length > 3)
             {
                 Console.WriteLine("Recherche sur " + TextSearch.Text);
             }
+        }
+
+
+
+        private void OnSelectOrder(object sender, SelectionChangedEventArgs e)
+        {
+            if(FilmViewModel != null)
+            {
+                FilmViewModel.ShowFilm(ComboBoxOrder.SelectedIndex + 1);
+            }
+            
         }
     }
 }
