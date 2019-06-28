@@ -28,7 +28,7 @@ namespace Videotheque
 
             await genreservice.AddGenre("Fantasy");
 
-            await filmservice.AddFilm("Mon film", 5, "test syno", 10, 1);
+            await filmservice.AddFilm("Mon film test", 5, "test syno", 10, 1);
             await context.SaveChangesAsync();
             List<Genre> maliste = await filmservice.GetFilmGenre(1);
 

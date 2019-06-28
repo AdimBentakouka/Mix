@@ -17,6 +17,7 @@ namespace Videotheque.Service
             Media_Genre media_Genre = new Media_Genre { Id_Media = newFilm.Id, Id_Genre = genre };
             context.MediasGenres.Add(media_Genre);
             await context.SaveChangesAsync();
+            
         }
 
         public async Task<List<Film>> GetAllFilm()
@@ -40,9 +41,22 @@ namespace Videotheque.Service
             {
                 listGenre.Add(context.Genres.Where(g => g.Id == mg.Id_Genre).First());
             }
-
             return listGenre;
+        }
 
+        public async Task<List<Film>> GetAllFilmByGenre(int genre)
+        {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            List<Media_Genre> listmg = context.MediasGenres.Where(mg => mg.Id_Genre == genre).ToList();
+            List<Film> listFilmByGenre = new List<Film>();
+            foreach (Media_Genre mg in listmg)
+            {
+                if (!listFilmByGenre.Contains(context.Films.Where(film => film.Id == mg.Id_Media).First()))
+                {
+                    listFilmByGenre.Add(context.Films.Where(film => film.Id == mg.Id_Media).First());
+                }
+            }
+            return listFilmByGenre;
         }
 
     }
