@@ -28,9 +28,12 @@ namespace Videotheque.View
             InitializeComponent();
            
         }
-        public new void IsLoaded(object sender, RoutedEventArgs e)
+        public new async void IsLoaded(object sender, RoutedEventArgs e)
         {
             AdminViewModel = DataContext as AdminViewModel;
+            await AdminViewModel.InitGenre();
+
+            Genre.SelectedIndex = 0;
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {

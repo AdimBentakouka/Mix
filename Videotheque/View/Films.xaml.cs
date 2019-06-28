@@ -30,10 +30,13 @@ namespace Videotheque.View
             TextSearch.Text = "Rechercher un film / série";
          
         }
-        public new void IsLoaded(object sender, RoutedEventArgs e)
+        public new async void IsLoaded(object sender, RoutedEventArgs e)
         {
             FilmViewModel = DataContext as FilmsViewModel;
-            FilmViewModel.InitData();
+            await FilmViewModel.InitData();
+            ShowFilm();
+            await FilmViewModel.InitGenre();
+            Genre.SelectedIndex = 0;
             
         }
      
@@ -51,29 +54,30 @@ namespace Videotheque.View
             {
                 TextSearch.Text = "Rechercher un film / série";
             }
-            else
-            {
-                //Faire un recherche
-            }
         }
 
         private void SearchMedia(object sender, TextChangedEventArgs e)
         {
-            if (TextSearch.Text.Length > 3)
-            {
-                Console.WriteLine("Recherche sur " + TextSearch.Text);
-            }
+            ShowFilm();
         }
 
-
+        private async void OnSelectGenre(object sender, SelectionChangedEventArgs e)
+        {
+            await FilmViewModel.RefreshListfilmAsync(Genre.SelectedIndex);
+            ShowFilm();
+        }
 
         private void OnSelectOrder(object sender, SelectionChangedEventArgs e)
         {
-            if(FilmViewModel != null)
+            ShowFilm();
+        }
+
+        private void ShowFilm()
+        {
+            if (FilmViewModel != null)
             {
-                FilmViewModel.ShowFilm(ComboBoxOrder.SelectedIndex + 1);
+                FilmViewModel.ShowFilm(ComboBoxOrder.SelectedIndex + 1, TextSearch.Text);
             }
-            
         }
     }
 }

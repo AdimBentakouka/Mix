@@ -14,8 +14,10 @@ namespace Videotheque.ViewModel
     {
         public MainViewModel ViewModel { get { return GetValue<MainViewModel>(); } set { SetValue<MainViewModel>(value); } }
         public ObservableCollection<String> ListBoxFilms { get { return GetValue<ObservableCollection<String>>(); } set { SetValue<ObservableCollection<String>>(value); } }
+        public ObservableCollection<String> ComboBoxGenre { get { return GetValue<ObservableCollection<String>>(); } set { SetValue<ObservableCollection<String>>(value); } }
 
         private FilmService FilmService;
+        private GenreService GenreService;
         private List<Film> Films;
 
 
@@ -23,39 +25,79 @@ namespace Videotheque.ViewModel
         {
             ViewModel = _ViewModel;
             FilmService = new FilmService();
+            GenreService = new GenreService();
             ListBoxFilms = new ObservableCollection<string>();
+            ComboBoxGenre = new ObservableCollection<string>();
+
         }
 
-        public async void InitData()
+        public async Task InitData()
         {
             await RefreshListfilmAsync();
-            ShowFilm();
 
         }
 
-        public async Task RefreshListfilmAsync()
+        public async Task RefreshListfilmAsync(int _genre = 0)
         {
-            Films = await FilmService.GetAllFilm();
+            if(_genre > 0)
+            {
+                Films = await FilmService.GetAllFilmByGenre(_genre);
+            }
+            else
+            {
+                Films = await FilmService.GetAllFilm();
+            }
+
+
         }
 
-        public async void ShowFilm(int _order = 1)
+        public async Task InitGenre()
         {
-            await RefreshListfilmAsync();
+            //Recup en BDD tout les genres
+            var listGenres = await GenreService.GetAllGenre();
+            // on trie la liste avant de l'inserer
+            listGenres = listGenres.OrderBy(n => n.Id).ToList();
+            // On add les genres dans la combobox
+            ComboBoxGenre.Clear();
+            ComboBoxGenre.Add("Tous");
+            foreach (Genre genre in listGenres)
+            {
+                ComboBoxGenre.Add(genre.Nom);
+            }
+        }
+
+        public void ShowFilm(int _order = 1, String _filtre = "")
+        {
+            var listFilms = Films;
             switch (_order)
             {
+                default:
                 case 1:
-                    Films = Films.OrderBy(n => n.Titre).ToList();
+                    listFilms = listFilms.OrderBy(n => n.Titre).ToList();
                     break;
                 case 2:
-                    Films = Films.OrderByDescending(n => n.Titre).ToList();
+                    listFilms = listFilms.OrderByDescending(n => n.Titre).ToList();
                     break;
-                default:
-                    throw new System.ArgumentException("Ordre non définis");
+               
             }
             ListBoxFilms.Clear();
-            foreach (Film film in Films)
+            foreach (Film film in listFilms)
             {
+                // Trie seulement si on a renseigner plus de deux lettres
+                if(!_filtre.Equals("") && !_filtre.Equals("Rechercher un film / série") && _filtre.Length > 2)
+                {
+                    // Si le film contient pas le mot entrer on passe au prochains
+                    if(!film.Titre.ToUpper().Contains(_filtre.ToUpper()))
+                    {
+                        continue;
+                    }
+                }
                 ListBoxFilms.Add(film.Titre);
+            }
+
+            if(ListBoxFilms.Count() == 0)
+            {
+                ListBoxFilms.Add("Pas d'ocurrence ...");
             }
         }
 

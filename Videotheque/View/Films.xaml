@@ -24,13 +24,11 @@
             <RowDefinition Height="271*"/>
         </Grid.RowDefinitions>
         <TextBox Name="TextSearch" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="270" Height="34" FontSize="20" Background="#FF212020" Foreground="White" BorderBrush="#FF191919" GotFocus="OnFocusSearchText" LostFocus="OnLostFocusSearchText" TextChanged="SearchMedia" Margin="19,10,21,6" Grid.Column="1"/>
-        <ComboBox Grid.Column="2" HorizontalAlignment="Center" Margin="132,16,26,14" VerticalAlignment="Center" Foreground="#FF787878" Width="96" Height="20" >
+        <ComboBox ItemsSource="{Binding ComboBoxGenre}" Name="Genre" Grid.Column="2" HorizontalAlignment="Center" Margin="132,16,26,14" VerticalAlignment="Center" Foreground="#FF787878" Width="96" Height="20"   SelectionChanged="OnSelectGenre">
             <ComboBox.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF212020" />
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF111111" />
             </ComboBox.Resources>
-            <ComboBoxItem Content="Horreur" />
-            <ComboBoxItem Content="Action" />
         </ComboBox>
 
         <ComboBox Name="ComboBoxOrder" Grid.Column="3" Text="TRIER PAR" Background="#FF212020" HorizontalAlignment="Center" Margin="217,16,61,14" VerticalAlignment="Center"  Foreground="#FF787878" BorderBrush="Black" Width="88" Height="20" SelectionChanged="OnSelectOrder">
