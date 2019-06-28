@@ -21,20 +21,34 @@ namespace Videotheque
         {
          
             base.OnStartup(e);
+            string fpath = System.IO.Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "database.db");
+            if(System.IO.File.Exists(fpath))
+            {
+                System.IO.File.Delete(fpath);
+            }
+
 
             FilmService filmservice = new FilmService();
             GenreService genreservice = new GenreService();
-            var context = await DataAccess.BooksDbContext.GetCurrent();
-
+            await genreservice.AddGenre("Action");
+            await genreservice.AddGenre("Aventure");
             await genreservice.AddGenre("Fantasy");
+            await genreservice.AddGenre("Horreur");
 
-            await filmservice.AddFilm("Mon film test", 5, "test syno", 10, 1);
-            await context.SaveChangesAsync();
-            List<Genre> maliste = await filmservice.GetFilmGenre(1);
-
-            foreach (Genre g in maliste)
+            await filmservice.AddFilm("Film 1", 5, "action", 10, 1);
+            await filmservice.AddFilm("Film 2", 5, "aventure", 10, 2);
+            await filmservice.AddFilm("Film 3", 5, "fantasy", 10, 3);
+            await filmservice.AddFilm("Film 4", 5, "action", 10, 1);
+            await filmservice.AddFilm("Film 5", 5, "aventure", 10, 2);
+            List<Film> filmAction = await filmservice.GetAllFilmByGenre(1);
+            List<Film> filmAventure = await filmservice.GetAllFilmByGenre(2);
+            List<Film> filmFantasy = await filmservice.GetAllFilmByGenre(3);
+            List<Film> filmHorreur = await filmservice.GetAllFilmByGenre(4);
+            foreach (Film f in filmHorreur)
             {
-                Console.WriteLine(g.Nom);
+                Console.WriteLine(f.Titre);
             };
         }
 
