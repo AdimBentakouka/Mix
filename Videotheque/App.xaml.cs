@@ -38,18 +38,26 @@ namespace Videotheque
             await genreservice.AddGenre("Horreur");
 
             await filmservice.AddFilm("Film 1", 5, "action", 10, 1);
-            await filmservice.AddFilm("Film 2", 5, "aventure", 10, 2);
-            await filmservice.AddFilm("Film 3", 5, "fantasy", 10, 3);
+            await filmservice.AddFilm("Film 2", 1, "aventure", 10, 2);
+            await filmservice.AddFilm("Film 3", 2, "fantasy", 10, 3);
             await filmservice.AddFilm("Film 4", 5, "action", 10, 1);
-            await filmservice.AddFilm("Film 5", 5, "aventure", 10, 2);
+            await filmservice.AddFilm("Film 5", 4, "aventure", 10, 2);
             List<Film> filmAction = await filmservice.GetAllFilmByGenre(1);
             List<Film> filmAventure = await filmservice.GetAllFilmByGenre(2);
             List<Film> filmFantasy = await filmservice.GetAllFilmByGenre(3);
             List<Film> filmHorreur = await filmservice.GetAllFilmByGenre(4);
-            foreach (Film f in filmHorreur)
+
+            await filmservice.DeleteFilm(1);
+            await filmservice.EditFilm(2,"Film 2 edit", 0, "action", 10, 1);
+            foreach (Film f in filmFantasy)
             {
-                Console.WriteLine(f.Titre);
-            };
+                Console.WriteLine(f.Note + " " + f.Commentaire);
+            }
+            await filmservice.RateFilm(3, 4, "rating");
+            foreach (Film f in filmFantasy)
+            {
+                Console.WriteLine(f.Note + " " + f.Commentaire);
+            }
         }
 
     }

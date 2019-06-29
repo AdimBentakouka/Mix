@@ -32,6 +32,13 @@ namespace Videotheque.Service
             return context.Films.Where(film => film.Id == idFilm).First();
         }
 
+        public async Task DeleteFilm(int idFilm)
+        {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            context.Remove(context.Films.Where(film => film.Id == idFilm).First());
+            await context.SaveChangesAsync();
+        }
+
         public async Task<List<Genre>> GetFilmGenre(int idFilm)
         {
             var context = await DataAccess.BooksDbContext.GetCurrent();
@@ -57,6 +64,27 @@ namespace Videotheque.Service
                 }
             }
             return listFilmByGenre;
+        }
+
+        public async Task RateFilm(int idFilm, int note, string commentaire)
+        {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            context.Films.Where(film => film.Id == idFilm).First().Note = note;
+            context.Films.Where(film => film.Id == idFilm).First().Commentaire = commentaire;
+            await context.SaveChangesAsync();
+        }
+
+
+        public async Task EditFilm(int idFilm,string titre, int note, string synopsis, int ageMini, int genre)
+        {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            context.Films.Where(film => film.Id == idFilm).First().Titre = titre;
+            context.Films.Where(film => film.Id == idFilm).First().Note = note;
+            context.Films.Where(film => film.Id == idFilm).First().Synopsis = synopsis;
+            context.Films.Where(film => film.Id == idFilm).First().Age_Minimum = ageMini;
+            context.Remove(context.MediasGenres.Where(md => md.Id_Media == idFilm).First());
+            context.MediasGenres.Add(new Media_Genre { Id_Media = idFilm, Id_Genre = genre });
+            await context.SaveChangesAsync();
         }
 
     }
