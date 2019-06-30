@@ -188,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\20190630105801_ami.cs" />
+    <Compile Include="Migrations\20190630105801_ami.designer.cs">
+      <DependentUpon>20190630105801_ami.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Ami.cs" />
     <Compile Include="Service\FilmService.cs" />
     <Compile Include="Service\GenreService.cs" />
