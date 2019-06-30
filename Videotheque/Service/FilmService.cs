@@ -9,10 +9,10 @@ namespace Videotheque.Service
 {
     class FilmService
     {
-        public async Task AddFilm(string titre, int note, string synopsis, int ageMini, int genre)
+        public async Task AddFilm(string titre, string synopsis, int ageMini, int genre)
         {
             var context = await DataAccess.BooksDbContext.GetCurrent();
-            Film newFilm = new Film { Titre = titre, Note = note, Synopsis = synopsis, Age_Minimum = ageMini };
+            Film newFilm = new Film { Titre = titre, Note = 0, Synopsis = synopsis, Age_Minimum = ageMini };
             context.Films.Add(newFilm);
             Media_Genre media_Genre = new Media_Genre { Id_Media = newFilm.Id, Id_Genre = genre };
             context.MediasGenres.Add(media_Genre);
@@ -75,11 +75,10 @@ namespace Videotheque.Service
         }
 
 
-        public async Task EditFilm(int idFilm,string titre, int note, string synopsis, int ageMini, int genre)
+        public async Task EditFilm(int idFilm,string titre, string synopsis, int ageMini, int genre)
         {
             var context = await DataAccess.BooksDbContext.GetCurrent();
             context.Films.Where(film => film.Id == idFilm).First().Titre = titre;
-            context.Films.Where(film => film.Id == idFilm).First().Note = note;
             context.Films.Where(film => film.Id == idFilm).First().Synopsis = synopsis;
             context.Films.Where(film => film.Id == idFilm).First().Age_Minimum = ageMini;
             context.Remove(context.MediasGenres.Where(md => md.Id_Media == idFilm).First());
