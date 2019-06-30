@@ -120,6 +120,7 @@ namespace Videotheque.ViewModel
                ViewModel.Source = NavigationServices.GetPage<FocusFilm, FocusFilmViewModel>(ViewModel);
              }
         }
+      
 
 
     }

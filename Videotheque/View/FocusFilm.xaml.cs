@@ -40,15 +40,17 @@ namespace Videotheque.View
             String _NameMedia = "";
             String _Synopsis = "";
             String _AgeMini = "";
+            String _commentaire = "";
             int _Note = 0;
             int _genre = 0;
-            FocusFilmViewModel.InitFilm(ref _NameMedia, ref _Synopsis, ref _Note, ref _AgeMini, ref _genre);
+            FocusFilmViewModel.InitFilm(ref _NameMedia, ref _Synopsis, ref _Note, ref _AgeMini, ref _genre, ref _commentaire);
 
             NameMedia.Text = _NameMedia;
             Synopsis.Text = _Synopsis;
             Note.SelectedIndex = _Note;
             AgeMini.Text = _AgeMini;
             Genre.SelectedIndex = _genre - 1;
+            Commentaire.Text = _commentaire;
         }
   
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -65,9 +67,14 @@ namespace Videotheque.View
 
         }
 
-        private void OnClickDelete(object sender, RoutedEventArgs e)
+        private async void OnClickDelete(object sender, RoutedEventArgs e)
         {
-            FocusFilmViewModel.DeleteFilm();
+            await FocusFilmViewModel.DeleteFilm();
+        }
+
+        private async void OnClickButtonCommentaire(object sender, RoutedEventArgs e)
+        {
+            await FocusFilmViewModel.EditCommentaire(Convert.ToInt32(Note.SelectionBoxItem), Commentaire.Text);
         }
     }
 }

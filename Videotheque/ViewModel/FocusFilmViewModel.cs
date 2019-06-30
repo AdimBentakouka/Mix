@@ -28,13 +28,14 @@ namespace Videotheque.ViewModel
             FilmService = new FilmService();
         }
 
-        public void InitFilm(ref String _NameMedia, ref String _Synopsis, ref int _Note, ref String _AgeMini, ref int _genre)
+        public void InitFilm(ref String _NameMedia, ref String _Synopsis, ref int _Note, ref String _AgeMini, ref int _genre, ref String _commentaire)
         {
             _NameMedia = ViewModel.Film.Titre;
             _Synopsis = ViewModel.Film.Synopsis;
             _AgeMini = ViewModel.Film.Age_Minimum.ToString();
             _Note = ViewModel.Film.Note;
             _genre = ViewModel.Film.Genre[0].Id_Genre;
+            _commentaire = ViewModel.Film.Commentaire;
 
         }
 
@@ -75,6 +76,10 @@ namespace Videotheque.ViewModel
           
         }
 
+        public async Task EditCommentaire(int _note, String _commentaire)
+        {
+            await FilmService.RateFilm(ViewModel.Film.Id, _note, _commentaire);
+        }
 
 
 
