@@ -63,7 +63,7 @@ namespace Videotheque.ViewModel
             }
             else
             {
-                await FilmService.EditFilm(ViewModel.Film.Id, _name, ViewModel.Film.Note, _synopsis, Convert.ToInt32(_ageMini), Convert.ToInt32(_genre) + 1);
+                await FilmService.EditFilm(ViewModel.Film.Id, _name, _synopsis, Convert.ToInt32(_ageMini), Convert.ToInt32(_genre) + 1);
                 return "Success";
             }
         }
