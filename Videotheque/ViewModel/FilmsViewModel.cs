@@ -49,8 +49,6 @@ namespace Videotheque.ViewModel
             {
                 Films = await FilmService.GetAllFilm();
             }
-
-
         }
 
         public async Task InitGenre()

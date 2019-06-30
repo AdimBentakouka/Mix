@@ -32,6 +32,7 @@ namespace Videotheque
 
             FilmService filmservice = new FilmService();
             GenreService genreservice = new GenreService();
+            AmiService amiservice = new AmiService();
             await genreservice.AddGenre("Action");
             await genreservice.AddGenre("Aventure");
             await genreservice.AddGenre("Fantasy");
@@ -46,7 +47,8 @@ namespace Videotheque
             List<Film> filmAventure = await filmservice.GetAllFilmByGenre(2);
             List<Film> filmFantasy = await filmservice.GetAllFilmByGenre(3);
             List<Film> filmHorreur = await filmservice.GetAllFilmByGenre(4);
-
+            await amiservice.AddAmi("Adim", "BENTAKOUKA", "adim.bentakouka@gmail.com");
+            await amiservice.EditAmi(1, "Adimedit", "BENTAKOUKA", "adim.bentakouka@gmail.com");
             await filmservice.DeleteFilm(1);
             await filmservice.EditFilm(2,"Film 2 edit", "action", 10, 1);
             foreach (Film f in filmFantasy)

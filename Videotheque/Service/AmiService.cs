@@ -33,6 +33,20 @@ namespace Videotheque.Service
             await context.SaveChangesAsync();
         }
 
+        public async Task<Ami> GetAmi(int idAmi)
+        {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            return context.Amis.Where(a => a.Id == idAmi).First();
+        }
+
+        public async Task<List<Ami>> GetAllAmi()
+        {
+            var context = await DataAccess.BooksDbContext.GetCurrent();
+            return context.Amis.ToList();
+        }
+
+
+
 
     }
 }
