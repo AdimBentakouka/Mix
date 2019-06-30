@@ -38,7 +38,10 @@ namespace Videotheque.View
 
         private void ShowAmi()
         {
-            AmisViewModel.ShowAmi(TextSearch.Text);
+            if (AmisViewModel != null)
+            {
+                AmisViewModel.ShowAmi(TextSearch.Text);
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -52,6 +55,11 @@ namespace Videotheque.View
             {
                 TextSearch.Text = "";
             }
+        }
+
+        private void TextSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ShowAmi();
         }
     }
 }

@@ -43,21 +43,21 @@ namespace Videotheque.ViewModel
         {
             var listAmis = Amis;
             listAmis = listAmis.OrderBy(n => n.Nom).ToList();
-            //ListBoxAmis.Clear();
-            //foreach (Ami Ami in listAmis)
-            //{
-            // Trie seulement si on a renseigner plus de deux lettres
-            //    if (!_filtre.Equals("") && !_filtre.Equals("Rechercher un ami") && _filtre.Length > 2)
-            //    {
-            //        // Si l'ami contient pas le mot entrer on passe au prochains
-            //        if (!Ami.Nom.ToUpper().Contains(_filtre.ToUpper()))
-            //        {
-            //           continue;
-            //        }
-            //    }
-            //    ListBoxAmis.Add(Ami.Nom);
-            //}
-            ListBoxAmis.Add("test");
+            ListBoxAmis.Clear();
+            foreach (Ami Ami in listAmis)
+            {
+                // Trie seulement si on a renseigner plus de deux lettres
+                if (!_filtre.Equals("") && !_filtre.Equals("Rechercher un ami"))
+                {
+                    // Si l'ami contient pas le mot entrer on passe au prochains
+                    if (!Ami.Nom.ToUpper().Contains(_filtre.ToUpper()) && !Ami.Prenom.ToUpper().Contains(_filtre.ToUpper()))
+                    {
+                        continue;
+                    }
+
+                }
+                ListBoxAmis.Add(Ami.Nom + " " + Ami.Prenom);
+            }
 
             if (ListBoxAmis.Count() == 0)
             {

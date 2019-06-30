@@ -84,7 +84,7 @@ namespace Videotheque.ViewModel
             foreach (Film film in listFilms)
             {
                 // Trie seulement si on a renseigner plus de deux lettres
-                if(!_filtre.Equals("") && !_filtre.Equals("Rechercher un film / série") && _filtre.Length > 2)
+                if(!_filtre.Equals("") && !_filtre.Equals("Rechercher un film / série"))
                 {
                     // Si le film contient pas le mot entrer on passe au prochains
                     if(!film.Titre.ToUpper().Contains(_filtre.ToUpper()))
