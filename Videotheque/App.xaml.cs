@@ -21,45 +21,48 @@ namespace Videotheque
         {
          
             base.OnStartup(e);
-            string fpath = System.IO.Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "database.db");
+            string fpath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"mix.db");
             if(System.IO.File.Exists(fpath))
             {
                 System.IO.File.Delete(fpath);
             }
 
-
             FilmService filmservice = new FilmService();
             GenreService genreservice = new GenreService();
             AmiService amiservice = new AmiService();
-            await genreservice.AddGenre("Action");
+            await genreservice.AddGenre("Drame");
             await genreservice.AddGenre("Aventure");
+            await genreservice.AddGenre("Science-fiction");
+            await genreservice.AddGenre("Action");
             await genreservice.AddGenre("Fantasy");
-            await genreservice.AddGenre("Horreur");
 
-            await filmservice.AddFilm("Film 1", "action", 10, 1);
-            await filmservice.AddFilm("Film 2", "aventure", 10, 2);
-            await filmservice.AddFilm("Film 3", "fantasy", 10, 3);
-            await filmservice.AddFilm("Film 4", "action", 10, 1);
-            await filmservice.AddFilm("Film 5", "aventure", 10, 2);
-            List<Film> filmAction = await filmservice.GetAllFilmByGenre(1);
-            List<Film> filmAventure = await filmservice.GetAllFilmByGenre(2);
-            List<Film> filmFantasy = await filmservice.GetAllFilmByGenre(3);
-            List<Film> filmHorreur = await filmservice.GetAllFilmByGenre(4);
-            await amiservice.AddAmi("Adim", "BENTAKOUKA", "adim.bentakouka@gmail.com");
-            await amiservice.EditAmi(1, "Adimedit", "BENTAKOUKA", "adim.bentakouka@gmail.com");
-            await filmservice.DeleteFilm(1);
-            await filmservice.EditFilm(2,"Film 2 edit", "action", 10, 1);
-            foreach (Film f in filmFantasy)
+
+            await filmservice.AddFilm("Fight Club", "La vie d'un employé de bureau est bouleversée lorsqu'il rencontre Tyler Durden. Ils forment ensemble le Fight Club, un club de lutte clandestine.", 18, 1);
+            await filmservice.AddFilm("Pulp Fiction", "'odyssée sanglante, burlesque et cocasse de petits malfrats dans la jungle de Hollywood à travers trois histoires qui s'entremêlent.", 18, 1);
+            await filmservice.AddFilm("2001 : L'Odyssée de l'espace", "action", 10, 2);
+            await filmservice.AddFilm("Blade Runner", "Après avoir massacré un équipage et pris le contrôle d'un vaisseau, quatre androïdes ultra perfectionnés parviennent à s'introduire dans Los Angeles.", 14, 3);
+            await filmservice.AddFilm("Interstellar", "Un groupe d'explorateurs exploite une faille dans l'espace-temps afin de parcourir des distances incroyables dans le but de sauver l'humanité.", 12, 3);
+            await filmservice.AddFilm("Le Parrain", "Suite à une tentative d'assassinat sur la personne de Don Vito Corleone, deux puissantes familles de la mafia New-Yorkaise s'affrontent, en quête de vengeance.", 10, 1);
+            await filmservice.AddFilm("Forrest Gump", "Forrest raconte sa fabuleuse histoire, celle d'un simple d'esprit se laissant porter par les événements américains les plus marquants du XXe siècle.", 10, 2);
+            await filmservice.AddFilm("Le Seigneur des Anneaux : Le Retour du roi", "Guidés par Gollum, Frodon et Sam continuent leur périple vers la montagne du destin, tandis que Gandalf et ses compagnons se retrouvent à Isengard.", 12, 5);
+            await filmservice.AddFilm("Le Seigneur des Anneaux : La Communauté de l'anneau", "Frodon reçoit l'Anneau de son oncle Bilbo. Sa vie et son monde sont pourtant en danger, car cet anneau appartient à Sauron, le maître des ténèbres.", 10, 5);
+            await filmservice.AddFilm("L'Empire contre-attaque", "Après la destruction de l'Etoile noire, l'Empire fait tout pour traquer et anéantir les rebelles qui se sont réfugiés sur la planète Hoth.", 12, 4);
+            await filmservice.RateFilm(1, 5, "");
+            Random random = new Random();
+
+            for (int i = 1; i < 11; i++)
             {
-                Console.WriteLine(f.Note + " " + f.Commentaire);
+                int randomnumber = random.Next(0, 6);
+                if (randomnumber > 5) { randomnumber = 5; }
+                await filmservice.RateFilm(i, randomnumber, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum suscipit quam quis elit bibendum ultrices. Ut volutpat diam sed tempus viverra. Praesent malesuada feugiat est, in finibus nisi pretium sed. Nam vitae mi ut augue sodales lobortis in nec enim. Sed eget tincidunt purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ");
             }
-            await filmservice.RateFilm(3, 4, "rating");
-            foreach (Film f in filmFantasy)
-            {
-                Console.WriteLine(f.Note + " " + f.Commentaire);
-            }
+
+
+            await amiservice.AddAmi("Sacripant", "Garceau", "SacripantGarceau@armyspy.com");
+            await amiservice.AddAmi("Monique", "Gamelin", "MoniqueGamelin@rhyta.com");
+            await amiservice.AddAmi("Curtis", "Poirier", "CurtisPoirier@dayrep.com");
+            await amiservice.AddAmi("Robert", "Garceau", "RobertGarceau@rhyta.com");
+            await amiservice.AddAmi("Searlait", "Fontaine", "SearlaitFontaine@jourrapide.com");
         }
 
     }

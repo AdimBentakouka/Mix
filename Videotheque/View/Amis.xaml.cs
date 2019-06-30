@@ -44,11 +44,6 @@ namespace Videotheque.View
             }
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void TextSearch_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TextSearch.Text.Equals("Rechercher un ami"))
@@ -66,7 +61,7 @@ namespace Videotheque.View
         {
             if (ListBoxAmis.SelectedIndex > -1)
             {
-                AmisViewModel.setFocusAmis(ListBoxAmis.SelectedIndex + 1);
+                AmisViewModel.setFocusAmis(ListBoxAmis.SelectedValue.ToString());
             }
         }
 

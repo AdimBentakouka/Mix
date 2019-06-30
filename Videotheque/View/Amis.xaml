@@ -10,23 +10,25 @@
       Loaded="IsLoaded">
 
     <Grid Background="#111111">
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="0*"/>
-        <ColumnDefinition Width="155*"/>
-        <ColumnDefinition Width="127*"/>
-        <ColumnDefinition Width="183*"/>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="183*"/>
+            <ColumnDefinition Width="80"/>
 
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="50"/>
-        <RowDefinition Height="269*"/>
-        <RowDefinition Height="271*"/>
-        <RowDefinition Height="271*"/>
-    </Grid.RowDefinitions>
-    <TextBox Name="TextSearch" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="270" Height="34" FontSize="20" Background="#FF212020" Foreground="White" BorderBrush="#FF191919" Margin="19,10,21,6" Grid.Column="1" GotFocus="TextSearch_GotFocus" TextChanged="TextSearch_TextChanged" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="269*"/>
+            <RowDefinition Height="271*"/>
+            <RowDefinition Height="271*"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="TextSearch" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="270" Height="34" FontSize="20" Background="#FF212020" Foreground="White" BorderBrush="#FF191919" Margin="10,10,13,6" GotFocus="TextSearch_GotFocus" TextChanged="TextSearch_TextChanged" Grid.ColumnSpan="3" />
 
-    <ListBox Name="ListBoxAmis" ItemsSource="{Binding ListBoxAmis}" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2"  SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged"  MouseDoubleClick="OnClickAmi"/>
-    <Button Content="Ajouter un ami" Grid.Row="3" Grid.Column="2" Width="150" Height="50" Click="Button_Click"/>
+        <ListBox Name="ListBoxAmis" ItemsSource="{Binding ListBoxAmis}" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"  SelectionMode="Single"  MouseDoubleClick="OnClickAmi" Grid.Column="1" MinWidth="498" MinHeight="500"/>
+        <Button Content="Ajouter un ami" Grid.Row="3" Grid.Column="2" Width="150" Height="50" Click="Button_Click"/>
+        <Label Grid.ColumnSpan="3" Content="Double cliquez sur un ami pour afficher les details ou modifier" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="487" Foreground="White" Grid.Column="3"/>
     </Grid>
 </Page>

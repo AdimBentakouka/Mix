@@ -65,22 +65,24 @@ namespace Videotheque.ViewModel
             }
         }
 
-        public void setFocusAmis(int _id)
+        public void setFocusAmis(string _name)
         {
-            var listAmis = Amis;
-            listAmis = listAmis.OrderBy(n => n.Nom).ToList();
-
-            foreach (Ami Ami in listAmis)
+            if(!_name.Equals("Pas d'ocurrence ..."))
             {
-                    if (Ami.Id == _id)
+                var listAmis = Amis;
+                listAmis = listAmis.OrderBy(n => n.Nom).ToList();
+
+                foreach (Ami Ami in listAmis)
+                {
+                    if ((Ami.Nom + " " + Ami.Prenom == _name))
                     {
                         ViewModel.Ami = Ami;
                     }
                     continue;
                 }
 
-            ViewModel.Source = NavigationServices.GetPage<FocusAmis, FocusAmisViewModel>(ViewModel);
-            
+                ViewModel.Source = NavigationServices.GetPage<FocusAmis, FocusAmisViewModel>(ViewModel);
+            }
         }
 
         public void ShowAddAmiPage()

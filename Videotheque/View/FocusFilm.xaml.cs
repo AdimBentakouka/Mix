@@ -41,6 +41,7 @@ namespace Videotheque.View
             String _Synopsis = "";
             String _AgeMini = "";
             String _commentaire = "";
+            ErrMess.Content = "";
             int _Note = 0;
             int _genre = 0;
             FocusFilmViewModel.InitFilm(ref _NameMedia, ref _Synopsis, ref _Note, ref _AgeMini, ref _genre, ref _commentaire);

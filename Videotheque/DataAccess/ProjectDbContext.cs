@@ -15,7 +15,7 @@ namespace Videotheque.DataAccess
             if (_context == null)
             {
                 _context = new BooksDbContext(
-                    Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "database.db"));
+                    Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "mix.db"));
                 await _context.Database.MigrateAsync();
             }
             return _context;

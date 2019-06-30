@@ -22,7 +22,7 @@
         <Image HorizontalAlignment="Center"  VerticalAlignment="Center" Source="/Videotheque;component/Ressource/Logo.png" Margin="20"/>
         <Frame NavigationUIVisibility="Hidden"  Content="{Binding Source}" Grid.Row="2" Grid.Column="2"  />
 
-        <Label Content="Accueil" Margin="118,138,118,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickHome">
+        <Label Content="Accueil" Margin="127,234,109,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickHome">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />
@@ -35,7 +35,7 @@
                 </Style>
             </Label.Style>
         </Label>
-        <Label Content="Voir Films" Margin="104,232,104,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickFilm">
+        <Label Content="Bibliothèque" Margin="98,328,53,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickFilm" Width="199">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />
@@ -47,19 +47,7 @@
                 </Style>
             </Label.Style>
         </Label>
-        <Label Content="Voir Séries" Margin="100,328,100,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top" FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickSerie">
-            <Label.Style>
-                <Style TargetType="Label">
-                    <Setter Property="Foreground" Value="White" />
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="#d98f12" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Label.Style>
-        </Label>
-        <Label Content="Administration" Margin="77,422,77,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top"  FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickAdmin">
+        <Label Content="Administration" Margin="89,422,65,0" HorizontalAlignment="Center" Padding="20" Grid.Row="1" VerticalAlignment="Top"  FontSize="24" Cursor="Hand" MouseLeftButtonUp="OnClickAdmin">
             <Label.Style>
                 <Style TargetType="Label">
                     <Setter Property="Foreground" Value="White" />

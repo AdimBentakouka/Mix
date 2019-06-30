@@ -15,7 +15,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="155*"/>
             <ColumnDefinition Width="127*"/>
-            <ColumnDefinition Width="183*"/>
+            <ColumnDefinition Width="366"/>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -41,6 +41,7 @@
         </ComboBox>
         <Label Content="Trier par genre: " Grid.Column="2" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="93"/>
         <Label Content="Trier par ordre alphabétique: " Grid.Column="3" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="164"/>
-        <ListBox Name="ListFilm" ItemsSource="{Binding ListBoxFilms}" SelectionMode="Single" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2" MouseDoubleClick="OnClickFilm"/>
+        <ListBox Name="ListFilm" ItemsSource="{Binding ListBoxFilms}" SelectionMode="Single" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="510" Margin="0,72,0,-42" Grid.Row="1" VerticalAlignment="Center" Width="930" MinWidth="910" MinHeight="570" Grid.RowSpan="2" MouseDoubleClick="OnClickFilm"/>
+        <Label Grid.ColumnSpan="4" Content="Double cliquez sur un film pour afficher les details et modifier un film" HorizontalAlignment="Left" Margin="19,12,0,0" Grid.Row="1" VerticalAlignment="Top" Width="901" Foreground="White"/>
     </Grid>
 </Page>

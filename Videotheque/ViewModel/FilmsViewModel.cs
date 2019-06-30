@@ -103,7 +103,7 @@ namespace Videotheque.ViewModel
 
         public void setFocusFilm(String _titre = "")
         {
-             if(_titre != "")
+            if (_titre != "" && !_titre.Equals("Pas d'ocurrence ..."))
              {
                 foreach(Film Film in Films)
                 {

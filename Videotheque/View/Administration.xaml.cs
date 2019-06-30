@@ -34,6 +34,7 @@ namespace Videotheque.View
             await AdminViewModel.InitGenre();
 
             Genre.SelectedIndex = 0;
+            ErrMess.Content = "";
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {

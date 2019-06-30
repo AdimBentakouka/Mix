@@ -8,7 +8,7 @@ namespace Videotheque.DataAccess
         public BooksDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BooksDbContext>();
-            optionsBuilder.UseSqlite("Data Source=database.db");
+            optionsBuilder.UseSqlite("Data Source=mix.db");
 
             return new BooksDbContext(optionsBuilder.Options);
         }

@@ -44,9 +44,5 @@ namespace Videotheque.Service
             var context = await DataAccess.BooksDbContext.GetCurrent();
             return context.Amis.ToList();
         }
-
-
-
-
     }
 }

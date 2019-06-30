@@ -64,6 +64,7 @@ namespace Videotheque.ViewModel
             else
             {
                 await FilmService.EditFilm(ViewModel.Film.Id, _name, _synopsis, Convert.ToInt32(_ageMini), Convert.ToInt32(_genre) + 1);
+                ViewModel.Source = NavigationServices.GetPage<Films, FilmsViewModel>(ViewModel);
                 return "Success";
             }
         }
@@ -79,6 +80,7 @@ namespace Videotheque.ViewModel
         public async Task EditCommentaire(int _note, String _commentaire)
         {
             await FilmService.RateFilm(ViewModel.Film.Id, _note, _commentaire);
+            ViewModel.Source = NavigationServices.GetPage<Films, FilmsViewModel>(ViewModel);
         }
 
 
