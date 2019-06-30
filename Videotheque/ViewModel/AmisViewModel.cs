@@ -65,5 +65,23 @@ namespace Videotheque.ViewModel
             }
         }
 
+        public void setFocusAmis(int _id)
+        {
+            var listAmis = Amis;
+            listAmis = listAmis.OrderBy(n => n.Nom).ToList();
+
+            foreach (Ami Ami in listAmis)
+            {
+                    if (Ami.Id == _id)
+                    {
+                        ViewModel.Ami = Ami;
+                    }
+                    continue;
+                }
+
+            ViewModel.Source = NavigationServices.GetPage<FocusAmis, FocusAmisViewModel>(ViewModel);
+            
+        }
+
     }
 }

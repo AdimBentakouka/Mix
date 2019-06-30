@@ -22,9 +22,9 @@
         <RowDefinition Height="269*"/>
         <RowDefinition Height="271*"/>
     </Grid.RowDefinitions>
-    <TextBox Name="TextSearch" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="270" Height="34" FontSize="20" Background="#FF212020" Foreground="White" BorderBrush="#FF191919" Margin="19,10,21,6" Grid.Column="1" GotFocus="TextSearch_GotFocus" TextChanged="TextSearch_TextChanged"/>
+    <TextBox Name="TextSearch" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="270" Height="34" FontSize="20" Background="#FF212020" Foreground="White" BorderBrush="#FF191919" Margin="19,10,21,6" Grid.Column="1" GotFocus="TextSearch_GotFocus" TextChanged="TextSearch_TextChanged" />
 
 
-        <ListBox ItemsSource="{Binding ListBoxAmis}" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2" SelectionChanged="ListBox_SelectionChanged"/>
+        <ListBox Name="ListBoxAmis" ItemsSource="{Binding ListBoxAmis}" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2"  SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged"  MouseDoubleClick="OnClickAmi"/>
     </Grid>
 </Page>

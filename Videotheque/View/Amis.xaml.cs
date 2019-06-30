@@ -61,5 +61,13 @@ namespace Videotheque.View
         {
             ShowAmi();
         }
+
+        private void OnClickAmi(object sender, MouseButtonEventArgs e)
+        {
+            if (ListBoxAmis.SelectedIndex > -1)
+            {
+                AmisViewModel.setFocusAmis(ListBoxAmis.SelectedIndex + 1);
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace Videotheque.ViewModel
         public Page Source { get { return GetValue<Page>(); } set { SetValue<Page>(value); } }
         public Film Film { get { return GetValue<Film>(); } set { SetValue<Film>(value); } }
 
+        public Ami Ami { get { return GetValue<Ami>(); } set { SetValue<Ami>(value); } }
+
 
     }
 }
