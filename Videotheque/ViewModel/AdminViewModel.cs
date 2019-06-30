@@ -41,7 +41,7 @@ namespace Videotheque.ViewModel
             }
             
         }
-        public String CheckAddFilm(String _name, String _note, String _synopsis, String _ageMini, int _genre)
+        public async Task<String> CheckAddFilm(String _name, String _note, String _synopsis, String _ageMini, int _genre)
         {
             //Vérifie tout les champs et retourne une erreur si champs vides.
             if (_name.Equals("") || _note.Equals("") || _synopsis.Equals("") || _ageMini.Equals("") || _genre == -1) // -1 = combobox vide
@@ -50,7 +50,7 @@ namespace Videotheque.ViewModel
             }
             else
             {
-                FilmService.AddFilm(_name, Convert.ToInt32(_note), _synopsis, Convert.ToInt32(_ageMini), Convert.ToInt32(_genre) + 1);
+                await FilmService.AddFilm(_name, Convert.ToInt32(_note), _synopsis, Convert.ToInt32(_ageMini), Convert.ToInt32(_genre) + 1);
                 return "Success";
             }
         }

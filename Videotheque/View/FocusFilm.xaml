@@ -6,9 +6,64 @@
       xmlns:local="clr-namespace:Videotheque.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FocusFilm">
+      Title="FocusFilm"
+      Loaded="IsLoaded"
+      >
 
-    <Grid>
-        
+    <Grid Background="#111111">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+
+            <RowDefinition Height="50"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Content="Média" HorizontalAlignment="Center" Foreground="#FFF3F3F3" VerticalAlignment="Center" FontSize="22" Background="#00000000"/>
+        <Label Name="ErrMess" Content="" HorizontalAlignment="Center" Foreground="#FFF3F3F3" VerticalAlignment="Center" FontSize="22" Background="#00000000" Grid.Column="1"/>
+
+        <Label Content="Nom du média" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="40,68,40,53" Height="26" Grid.RowSpan="2" Width="120"/>
+        <TextBox Name="NameMedia" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+
+        <Label Content="Note" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="73,68,91,56" Height="23" Grid.RowSpan="2"/>
+        <ComboBox Name="Note" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120" IsEnabled="False">
+            <ComboBoxItem>0</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Synopsis" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBox
+           Name="Synopsis"
+          TextWrapping="Wrap"
+          AcceptsReturn="True"
+          VerticalScrollBarVisibility="Visible" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+        />
+
+        <Label Content="Age Mini" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="72,2,58,52" Height="26" Width="70"/>
+        <TextBox  Name="AgeMini" PreviewTextInput="NumberValidationTextBox" MaxLength="2" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Background="White"/>
+
+        <Label Content="Genre" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.517,-0.692" Margin="73,71,58,56" Height="26" Width="69" Grid.RowSpan="2"/>
+        <ComboBox ItemsSource="{Binding ComboBoxGenre}" Name="Genre" Grid.Column="2" HorizontalAlignment="Center" Height="23" Grid.Row="4" VerticalAlignment="Center" Width="120" Background="White" />
+
+        <Button Content="Modifier" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="75" Grid.ColumnSpan="2" Click="OnClickButton"/>
+        <Button Content="Supprimer Média" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="98"  Click="OnClickDelete" />
+
+
+
+
+
     </Grid>
 </Page>

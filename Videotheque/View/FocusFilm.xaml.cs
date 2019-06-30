@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,47 @@ namespace Videotheque.View
         public FocusFilm()
         {
             InitializeComponent();
+            
+         
+
+        }
+        public new async void IsLoaded(object sender, RoutedEventArgs e)
+        {
+            FocusFilmViewModel = DataContext as FocusFilmViewModel;
+
+            await FocusFilmViewModel.InitGenre();
+
+            String _NameMedia = "";
+            String _Synopsis = "";
+            String _AgeMini = "";
+            int _Note = 0;
+            int _genre = 0;
+            FocusFilmViewModel.InitFilm(ref _NameMedia, ref _Synopsis, ref _Note, ref _AgeMini, ref _genre);
+
+            NameMedia.Text = _NameMedia;
+            Synopsis.Text = _Synopsis;
+            Note.SelectedIndex = _Note;
+            AgeMini.Text = _AgeMini;
+            Genre.SelectedIndex = _genre - 1;
+        }
+  
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void OnClickButton(object sender, RoutedEventArgs e)
+        {
+            ErrMess.Content = FocusFilmViewModel.CheckEditFilm(NameMedia.Text, Synopsis.Text, AgeMini.Text, Genre.SelectedIndex).Result;
+            
+
+
+        }
+
+        private void OnClickDelete(object sender, RoutedEventArgs e)
+        {
+            FocusFilmViewModel.DeleteFilm();
         }
     }
 }
