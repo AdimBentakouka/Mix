@@ -193,6 +193,7 @@
       <DependentUpon>20190630105801_ami.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Ami.cs" />
+    <Compile Include="Service\AmiService.cs" />
     <Compile Include="Service\FilmService.cs" />
     <Compile Include="Service\GenreService.cs" />
     <Compile Include="Service\NavigationService.cs" />
