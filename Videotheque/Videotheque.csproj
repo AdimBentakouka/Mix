@@ -204,6 +204,7 @@
     <Compile Include="ViewModel\AdminViewModel.cs" />
     <Compile Include="ViewModel\AmisViewModel.cs" />
     <Compile Include="ViewModel\FilmsViewModel.cs" />
+    <Compile Include="ViewModel\FocusFilmViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SeriesViewModel.cs" />
@@ -215,6 +216,9 @@
     </Compile>
     <Compile Include="View\Films.xaml.cs">
       <DependentUpon>Films.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FocusFilm.xaml.cs">
+      <DependentUpon>FocusFilm.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -246,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Films.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FocusFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using Videotheque.Model;
 using Videotheque.Service;
+using Videotheque.View;
+using Videotheque.ViewModel;
 
 namespace Videotheque.ViewModel
 {
@@ -28,7 +30,7 @@ namespace Videotheque.ViewModel
             GenreService = new GenreService();
             ListBoxFilms = new ObservableCollection<string>();
             ComboBoxGenre = new ObservableCollection<string>();
-
+            
         }
 
         public async Task InitData()
@@ -101,6 +103,23 @@ namespace Videotheque.ViewModel
             }
         }
 
+        public void setFocusFilm(String _titre = "")
+        {
+             if(_titre != "")
+             {
+                foreach(Film Film in Films)
+                {
+                    if(Film.Titre.Equals(_titre))
+                    {
+                        ViewModel.Film = Film;
+                        break;
+                    }
+                    continue;
+                }
+                   
+               ViewModel.Source = NavigationServices.GetPage<FocusFilm, FocusFilmViewModel>(ViewModel);
+             }
+        }
 
 
     }

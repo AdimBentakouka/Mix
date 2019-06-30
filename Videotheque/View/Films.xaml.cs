@@ -79,5 +79,15 @@ namespace Videotheque.View
                 FilmViewModel.ShowFilm(ComboBoxOrder.SelectedIndex + 1, TextSearch.Text);
             }
         }
+
+        private void OnClickFilm(object sender, MouseButtonEventArgs e)
+        {
+            if(ListFilm.SelectedIndex > -1)
+            {
+                FilmViewModel.setFocusFilm(ListFilm.Items[ListFilm.SelectedIndex].ToString());
+            }
+            
+
+        }
     }
 }

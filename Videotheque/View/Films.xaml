@@ -41,6 +41,6 @@
         </ComboBox>
         <Label Content="Trier par genre: " Grid.Column="2" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="93"/>
         <Label Content="Trier par ordre alphabétique: " Grid.Column="3" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="164"/>
-        <ListBox ItemsSource="{Binding ListBoxFilms}" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2"/>
+        <ListBox Name="ListFilm" ItemsSource="{Binding ListBoxFilms}" SelectionMode="Single" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="570" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="909" MinWidth="910" MinHeight="570" Grid.RowSpan="2" MouseDoubleClick="OnClickFilm"/>
     </Grid>
 </Page>

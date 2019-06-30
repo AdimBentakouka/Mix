@@ -11,7 +11,8 @@ namespace Videotheque.ViewModel
     class MainViewModel : AbstractModel
     {
         public Page Source { get { return GetValue<Page>(); } set { SetValue<Page>(value); } }
+        public Film Film { get { return GetValue<Film>(); } set { SetValue<Film>(value); } }
 
-  
+
     }
 }
