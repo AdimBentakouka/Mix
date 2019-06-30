@@ -83,5 +83,10 @@ namespace Videotheque.ViewModel
             
         }
 
+        public void ShowAddAmiPage()
+        {
+            ViewModel.Source = NavigationServices.GetPage<AddAmi, AddAmiViewModel>(ViewModel);
+        }
+
     }
 }
